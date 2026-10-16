@@ -1,12 +1,173 @@
-
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>私のホームページ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuki Kanayama – Official Website</title>
+<meta name="description" content="Yuki Kanayama, PhD candidate in Economic Geography at the London School of Economics. Urban and housing economics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #016a40;
+    --blue: #146cbe;
+    --text: #1a1a1a;
+    --muted: #666666;
+    --line: #e6e6e6;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--text);
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Hiragino Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  a { color: var(--blue); text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Header */
+  .site-header { border-bottom: 1px solid var(--line); }
+  .site-header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+  .site-title { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+  .site-title a { color: var(--text); text-decoration: none; }
+  .site-desc { margin: 0; font-size: .85rem; color: var(--muted); line-height: 1.4; }
+  nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.75rem; margin: 0; padding: 0; list-style: none; }
+  nav a { color: var(--text); text-decoration: none; font-size: .95rem; }
+  nav a:hover { color: var(--blue); }
+
+  /* Sections */
+  section { padding: 2.75rem 0 1rem; }
+  h2 { margin: 0 0 1rem; font-size: 1.5rem; font-weight: 600; line-height: 1.3; }
+  h2.name { color: var(--green); }
+  h2.blue { color: var(--blue); }
+  p { margin: 0 0 1rem; }
+
+  .intro { display: flex; gap: 2.5rem; align-items: flex-start; }
+  .intro .text { flex: 1 1 70%; }
+  .intro .side { flex: 1 1 30%; }
+  .side ul { margin: 0; padding: 0; list-style: none; }
+  .side li { margin-bottom: .25rem; }
+  .side img { display: block; max-width: 100%; height: auto; margin-bottom: 1rem; }
+
+  /* Dated lists */
+  .posts { list-style: none; margin: 0; padding: 0; }
+  .posts > li { margin-bottom: 1.75rem; }
+  .posts .t { font-weight: 600; }
+  .posts time { display: block; font-size: .85rem; color: var(--muted); }
+  .posts .ex { margin: .25rem 0 0; font-size: .95rem; }
+
+  .awards { list-style: none; margin: 0; padding: 0; }
+  .awards li { display: flex; gap: 1.25rem; margin-bottom: .6rem; font-size: .95rem; }
+  .awards .y { flex: 0 0 2.75rem; color: var(--muted); }
+
+  .contact { font-size: .95rem; }
+
+  footer { margin-top: 4rem; padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--line); text-align: center; font-size: .85rem; color: var(--muted); }
+  footer a { color: inherit; }
+
+  @media (max-width: 640px) {
+    .intro { flex-direction: column; gap: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
 </head>
 <body>
-  <h1>こんにちは!</h1>
-  <p>GitHub Pagesで作ったページです。</p>
+
+<header class="site-header">
+  <div class="wrap">
+    <div>
+      <p class="site-title"><a href="#top">Yuki Kanayama</a></p>
+      <p class="site-desc">Official Website</p>
+    </div>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <section>
+    <h2 class="name">Yuki Kanayama</h2>
+    <div class="intro">
+      <div class="text">
+        <p>I am a PhD candidate in Economic Geography at the London School of Economics. Before joining LSE, I worked for Japan’s Ministry of Land, Infrastructure, Transport and Tourism, on regulatory reform in the construction industry and international cooperation on railway projects. I received my B.A. (2018) and M.A. (2020) in Economics from Waseda University, Japan.</p>
+        <p>My research interests include empirical studies on urban economics, particularly on vacant properties in prosperous areas, such as housing owners’ incentives to delay realising their assets despite strong demand, and the negative externalities of derelict houses. I am also interested in housing affordability, vacant lots, and vacancy taxes.</p>
+        <p>My supervisors are <a href="https://www.lse.ac.uk/people/christian-hilber">Christian Hilber</a> and <a href="https://www.lse.ac.uk/people/felipe-carozzi">Felipe Carozzi</a>.</p>
+      </div>
+      <div class="side">
+        <!-- To add a photo, upload it to this repository (e.g. photo.jpg) and uncomment the next line:
+        <img src="photo.jpg" alt="Yuki Kanayama">
+        -->
+        <ul>
+          <li><a href="http://www.lse.ac.uk/person/cv-yukikanayama-lse.pdf">Full CV</a></li>
+          <li><a href="https://www.lse.ac.uk/people/yuki-kanayama">LSE profile</a></li>
+          <li><a href="https://www.linkedin.com/in/yuki-kanayama-64416216b/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2 class="blue">Research</h2>
+    <p>Urban economics, housing economics, applied microeconometrics, real estate, transport.</p>
+    <ul class="posts">
+      <li>
+        <span class="t">What types of houses remain vacant? Evidence from a municipality in Tokyo, Japan</span>
+        <time datetime="2021">2021</time>
+        <p class="ex">Kanayama, Y. and Sadayuki, T. <em>Journal of the Japanese and International Economies</em>, 62, 101167. <a href="https://doi.org/10.1016/j.jjie.2021.101167">Read paper</a></p>
+      </li>
+      <li>
+        <span class="t">The externality of vacant houses: The case of Toshima municipality, Tokyo, Japan</span>
+        <time datetime="2020">2020</time>
+        <p class="ex">Sadayuki, T., Kanayama, Y. and Arimura, T. H. <em>Review of Regional Studies</em>, 50(2). <a href="https://doi.org/10.52324/001c.13522">Read paper</a></p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="awards">
+    <h2 class="blue">Awards and Funding</h2>
+    <ul class="awards">
+      <li><span class="y">2024</span><span>The British Council Japan Association Scholarship</span></li>
+      <li><span class="y">2024</span><span>Research funding for collaborative research, Center for Spatial Information Science, University of Tokyo</span></li>
+      <li><span class="y">2023</span><span>Outstanding Joint-Research Award, Center for Spatial Information Science, University of Tokyo</span></li>
+      <li><span class="y">2020</span><span>Valedictorian, Graduate School of Economics, Waseda University</span></li>
+      <li><span class="y">2020</span><span>Dean’s Academic Award for the Best Master’s Dissertation, Graduate School of Economics, Waseda University</span></li>
+      <li><span class="y">2018</span><span>SES Presentation Award, Society of Environmental Science, Japan</span></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="blue">Contact &amp; Affiliation</h2>
+    <p><strong>Yuki Kanayama</strong></p>
+    <p class="contact">PhD Candidate in Economic Geography, Department of Geography and Environment<br>
+      London School of Economics and Political Science<br>
+      Houghton Street, London WC2A 2AE, UK<br>
+      Email: <a href="mailto:y.kanayama@lse.ac.uk">y.kanayama@lse.ac.uk</a></p>
+  </section>
+
+</main>
+
+<footer>© Yuki Kanayama All Rights Reserved.</footer>
+
 </body>
 </html>
