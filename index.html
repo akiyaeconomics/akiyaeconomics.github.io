@@ -23,7 +23,7 @@
   * { box-sizing: border-box; }
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 4rem;
   }
     body {
     margin: 0;
@@ -62,6 +62,36 @@
   nav a { color: var(--text); text-decoration: none; font-size: .95rem; }
   nav a:hover { color: var(--blue); }
 
+    .site-header .wrap {
+  transition: padding .2s ease;
+}
+.site-title {
+  transition: font-size .2s ease;
+}
+.site-desc {
+  transition: opacity .2s ease, max-height .2s ease;
+  max-height: 2rem;
+  overflow: hidden;
+}
+
+/* スクロール後の状態 */
+.site-header.compact .wrap {
+  padding-top: .6rem;
+  padding-bottom: .5rem;
+}
+.site-header.compact .site-title {
+  font-size: 1.05rem;
+}
+.site-header.compact .site-desc {
+  opacity: 0;
+  max-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .wrap,
+  .site-title,
+  .site-desc { transition: none; }
+}
 
 .name-ja {
   font-family: "UD Digi Kyokasho N-R", "教科書体", "Klee One", serif;
@@ -232,6 +262,13 @@
 </main>
 
 <footer>© Yuki Kanayama All Rights Reserved.</footer>
-
+<script>
+  const header = document.querySelector('.site-header');
+  const onScroll = () => {
+    header.classList.toggle('compact', window.scrollY > 40);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
 </body>
 </html>
