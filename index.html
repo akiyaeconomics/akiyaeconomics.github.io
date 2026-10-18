@@ -70,6 +70,14 @@
   .posts time { display: block; font-size: .85rem; color: var(--muted); }
   .posts .ex { margin: .25rem 0 0; font-size: .95rem; }
 
+  .teaching { list-style: none; margin: 0; padding: 0; }
+  .teaching li { display: flex; gap: 1.25rem; margin-bottom: .6rem; font-size: .95rem; }
+  .teaching .y { flex: 0 0 10.5rem; color: var(--muted); }
+  @media (max-width: 640px) {
+  .teaching li { flex-direction: column; gap: 0; }
+  .teaching .y { flex-basis: auto; }
+  }
+  
   .awards { list-style: none; margin: 0; padding: 0; }
   .awards li { display: flex; gap: 1.25rem; margin-bottom: .6rem; font-size: .95rem; }
   .awards .y { flex: 0 0 2.75rem; color: var(--muted); }
@@ -97,6 +105,7 @@
       <ul>
         <li><a href="#top">Home</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
         <li><a href="#awards">Awards</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -148,7 +157,15 @@
       </li>
     </ul>
   </section>
-
+  
+<section id="teaching">
+  <h2 class="blue">Teaching</h2>
+  <ul class="teaching">
+    <li><span class="y">2025/26 Winter Term</span><span>GY210 The Economics of Cities (LSE)</span></li>
+    <li><span class="y">2025/26 Autumn Term</span><span>GY447 The Economics of Regional and Urban Planning (LSE)</span></li>
+  </ul>
+</section>
+  
   <section id="awards">
     <h2 class="blue">Awards and Funding</h2>
     <ul class="awards">
