@@ -144,6 +144,40 @@
   .awards li { display: flex; gap: 1.25rem; margin-bottom: .6rem; font-size: .95rem; }
   .awards .y { flex: 0 0 2.75rem; color: var(--muted); }
 
+    /* Abstract toggle */
+.abs { margin: .4rem 0 0; }
+.abs summary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: .9rem;
+  color: var(--blue);
+}
+.abs summary::-webkit-details-marker { display: none; }
+.abs summary::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+  font-weight: 600;
+  line-height: 1;
+}
+.abs[open] summary::before { content: "\2212"; } /* − */
+.abs .abs-body {
+  margin: .6rem 0 0;
+  padding-left: .9rem;
+  border-left: 3px solid var(--line);
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+    
   .contact { font-size: .95rem; }
 
   footer { margin-top: 4rem; padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--line); text-align: center; font-size: .85rem; color: var(--muted); }
@@ -220,10 +254,14 @@
     </ul>
         <h3 class="role">Work in Progress</h3>
     <ul class="posts">
-      <li>
-        <span class="t">Lot shape matters a lot: The geometry of urban land market frictions</span>
-        <p class="ex">Joint with Aiba, I. and Tanaka, K. | Draft coming soon</p>  </li>
-      <li>
+   <li>
+     <span class="t">Lot shape matters a lot: The geometry of urban land market frictions</span>
+     <p class="ex">Joint with Aiba, I. and Tanaka, K. | Draft coming soon</p>
+     <details class="abs">
+       <summary>Abstract</summary>
+       <p class="abs-body">ここにアブストラクトの本文を入れてください。</p>
+     </details> 
+   </li>
         <span class="t">The geographic determinants of housing consumption</span>
         <p class="ex">Joint with Hilber, C., Sch&ouml;ni, O. and Yu, X. </p>      </li>
       <li>
