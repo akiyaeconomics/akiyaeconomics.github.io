@@ -21,8 +21,11 @@
     --line: #e6e6e6;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+    body {
     margin: 0;
     background: #fff;
     color: var(--text);
@@ -36,8 +39,14 @@
   .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
 
   /* Header */
-  .site-header { border-bottom: 1px solid var(--line); }
-  .site-header .wrap {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+  }
+    .site-header .wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
