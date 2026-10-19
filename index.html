@@ -111,6 +111,70 @@
   .intro .side { flex: 1 1 30%; }
   .side ul { margin: 0; padding: 0; list-style: none; }
   .side li { margin-bottom: .25rem; }
+  /* Link buttons */
+.side ul.links { display: grid; gap: .6rem; }
+.side ul.links li { margin: 0; }
+.btn {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .65rem .9rem;
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease,
+              border-color .2s ease, color .2s ease, background .2s ease;
+}
+.btn svg {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.btn span { flex: 1; }
+.btn .arrow {
+  width: .95rem;
+  height: .95rem;
+  opacity: .45;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.btn:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(20, 108, 190, .15);
+}
+.btn:hover .arrow { opacity: 1; transform: translate(2px, -2px); }
+
+/* Primary (CV) */
+.btn.primary {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.btn.primary:hover {
+  background: #01824f;
+  border-color: #01824f;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(1, 106, 64, .3);
+}
+
+@media (max-width: 640px) {
+  .side ul.links { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn .arrow { transition: none; }
+  .btn:hover { transform: none; }
+}
   .side img { display: block; max-width: 100%; height: auto; margin-bottom: 1rem; }
 
   /* Dated lists */
@@ -228,12 +292,37 @@
       </div>
       <div class="side">
         <img src="photo2.jpg" alt="Yuki Kanayama">
-        <ul>
-          <li><a href="cv_yukikanayama_lse.pdf" target="_blank" >Full CV</a></li>
-          <li><a href="https://www.lse.ac.uk/people/yuki-kanayama" target="_blank" >LSE profile</a></li>
-          <li><a href="https://scholar.google.co.jp/citations?user=OZQ94GUAAAAJ&hl=en" target="_blank" >Google Scholar</a></li>
-          <li><a href="https://www.linkedin.com/in/yuki-kanayama-64416216b/" target="_blank" >LinkedIn</a></li>
-        </ul>
+
+        <ul class="links">
+  <li>
+    <a class="btn primary" href="cv_yukikanayama_lse.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+      <span>Full CV</span>
+      <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </li>
+  <li>
+    <a class="btn" href="https://www.lse.ac.uk/people/yuki-kanayama" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 3 7v2h18V7z"/></svg>
+      <span>LSE profile</span>
+      <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </li>
+  <li>
+    <a class="btn" href="https://scholar.google.co.jp/citations?user=OZQ94GUAAAAJ&hl=en" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/></svg>
+      <span>Google Scholar</span>
+      <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </li>
+  <li>
+    <a class="btn" href="https://www.linkedin.com/in/yuki-kanayama-64416216b/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      <span>LinkedIn</span>
+      <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </li>
+</ul>
       </div>
     </div>
   </section>
