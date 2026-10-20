@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Yuki Kanayama</title>
 <meta name="description" content="PhD Candidate at LSE | Urban Economics">
 <meta property="og:title" content="Yuki Kanayama">
@@ -13,13 +14,45 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- ちらつき防止：CSSより先にテーマを決定する -->
+<script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem('theme'); } catch (e) {}
+    if (theme !== 'light' && theme !== 'dark') {
+      theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+
   <style>
   :root {
+    --bg: #ffffff;
     --green: #016a40;
     --blue: #146cbe;
     --text: #1a1a1a;
     --muted: #666666;
     --line: #e6e6e6;
+    --btn-primary-bg: #016a40;
+    --btn-primary-hover: #01824f;
+    --blue-shadow: rgba(20, 108, 190, .15);
+    --green-shadow: rgba(1, 106, 64, .3);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1a35;
+    --green: #f08a24;
+    --blue: #7ab8f5;
+    --text: #e6eaf3;
+    --muted: #a3adc4;
+    --line: #26365c;
+    --btn-primary-bg: #b84e0a;
+    --btn-primary-hover: #c4560c;
+    --blue-shadow: rgba(122, 184, 245, .18);
+    --green-shadow: rgba(240, 138, 36, .3);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   html {
@@ -28,11 +61,12 @@
   }
     body {
     margin: 0;
-    background: #fff;
+    background: var(--bg);
     color: var(--text);
     font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Hiragino Sans", sans-serif;
     font-size: 16px;
     line-height: 1.75;
+    transition: background-color .2s ease, color .2s ease;
   }
   a { color: var(--blue); text-underline-offset: 3px; }
   :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
@@ -44,8 +78,9 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #fff;
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
+    transition: background-color .2s ease, border-color .2s ease;
   }
     .site-header .wrap {
     display: flex;
@@ -59,9 +94,41 @@
   .site-title { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
   .site-title a { color: var(--text); text-decoration: none; }
   .site-desc { margin: 0; font-size: .85rem; color: var(--muted); line-height: 1.4; }
+  .header-right { display: flex; align-items: center; gap: .5rem 1.25rem; flex-wrap: wrap; }
   nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.75rem; margin: 0; padding: 0; list-style: none; }
   nav a { color: var(--text); text-decoration: none; font-size: .95rem; }
   nav a:hover { color: var(--blue); }
+
+  /* Theme toggle */
+  .theme-toggle {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .theme-toggle:hover { color: var(--blue); border-color: var(--blue); }
+  .theme-toggle svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  /* ライト時は月アイコン（ダークへ切替）、ダーク時は太陽アイコン */
+  .theme-toggle .icon-sun { display: none; }
+  :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+  :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
     .site-header .wrap {
   transition: padding .2s ease;
@@ -89,6 +156,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  body, .site-header, .theme-toggle,
   .site-header .wrap,
   .site-title,
   .site-desc { transition: none; }
@@ -119,7 +187,7 @@
   align-items: center;
   gap: .7rem;
   padding: .65rem .9rem;
-  background: #fff;
+  background: var(--bg);
   color: var(--text);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -151,21 +219,21 @@
   color: var(--blue);
   border-color: var(--blue);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(20, 108, 190, .15);
+  box-shadow: 0 6px 16px var(--blue-shadow);
 }
 .btn:hover .arrow { opacity: 1; transform: translate(2px, -2px); }
 
 /* Primary (CV) */
 .btn.primary {
-  background: var(--green);
-  border-color: var(--green);
+  background: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
   color: #fff;
 }
 .btn.primary:hover {
-  background: #01824f;
-  border-color: #01824f;
+  background: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
   color: #fff;
-  box-shadow: 0 6px 16px rgba(1, 106, 64, .3);
+  box-shadow: 0 6px 16px var(--green-shadow);
 }
 
 @media (max-width: 640px) {
@@ -176,6 +244,7 @@
   .btn:hover { transform: none; }
 }
   .side img { display: block; max-width: 100%; height: auto; margin-bottom: 1rem; }
+  :root[data-theme="dark"] .side img { filter: brightness(.92); }
 
   /* Dated lists */
   .posts { list-style: none; margin: 0; padding: 0; }
@@ -279,16 +348,22 @@
       <p class="site-title"><a href="#top">Yuki Kanayama</a></p>
       <p class="site-desc">PhD Candidate at LSE | Urban Economics</p>
     </div>
-    <nav aria-label="Main">
-      <ul>
-        <li><a href="#top">Home</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#presentations">Presentations</a></li>
-        <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="header-right">
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -464,12 +539,45 @@
 
 <footer>© Yuki Kanayama All Rights Reserved.</footer>
 <script>
+  /* Compact header on scroll */
   const header = document.querySelector('.site-header');
   const onScroll = () => {
     header.classList.toggle('compact', window.scrollY > 40);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* Dark mode toggle */
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      var next = theme === 'dark' ? 'light' : 'dark';
+      var label = 'Switch to ' + next + ' mode';
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
+    }
+
+    apply(root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'));
+
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    /* 手動で選んでいない場合のみ、OS設定の変更に追従 */
+    var onSystemChange = function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (err) {}
+      if (!saved) apply(e.matches ? 'dark' : 'light');
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
+    else if (mq.addListener) mq.addListener(onSystemChange);
+  })();
 </script>
 </body>
 </html>
