@@ -93,6 +93,7 @@
     padding-top: 1.5rem;
     padding-bottom: 1.25rem;
   }
+  .site-brand { display: flex; align-items: baseline; flex-wrap: wrap; gap: .1rem 1rem; }
   .site-title { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
   .site-title a { color: var(--text); text-decoration: none; }
   .site-desc { margin: 0; font-size: .85rem; color: var(--muted); line-height: 1.4; }
@@ -139,9 +140,7 @@
   transition: font-size .2s ease;
 }
 .site-desc {
-  transition: opacity .2s ease, max-height .2s ease;
-  max-height: 2rem;
-  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* スクロール後の状態 */
@@ -151,10 +150,6 @@
 }
 .site-header.compact .site-title {
   font-size: 1.05rem;
-}
-.site-header.compact .site-desc {
-  opacity: 0;
-  max-height: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -346,7 +341,7 @@
 
 <header class="site-header">
   <div class="wrap">
-    <div>
+    <div class="site-brand">
       <p class="site-title"><a href="#top">Yuki Kanayama</a></p>
       <p class="site-desc">PhD Candidate at LSE | Urban Economics</p>
     </div>
