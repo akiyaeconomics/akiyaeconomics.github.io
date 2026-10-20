@@ -32,6 +32,7 @@
     --bg: #ffffff;
     --green: #016a40;
     --blue: #146cbe;
+    --link: #146cbe;
     --text: #1a1a1a;
     --muted: #666666;
     --line: #e6e6e6;
@@ -44,13 +45,14 @@
   :root[data-theme="dark"] {
     --bg: #0e1a35;
     --green: #f08a24;
-    --blue: #7ab8f5;
+    --blue: #f3d9a4;
+    --link: #cfe0f5;
     --text: #e6eaf3;
     --muted: #a3adc4;
     --line: #26365c;
     --btn-primary-bg: #b84e0a;
     --btn-primary-hover: #c4560c;
-    --blue-shadow: rgba(122, 184, 245, .18);
+    --blue-shadow: rgba(243, 217, 164, .2);
     --green-shadow: rgba(240, 138, 36, .3);
     color-scheme: dark;
   }
@@ -68,7 +70,7 @@
     line-height: 1.75;
     transition: background-color .2s ease, color .2s ease;
   }
-  a { color: var(--blue); text-underline-offset: 3px; }
+  a { color: var(--link); text-underline-offset: 3px; }
   :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
   .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
